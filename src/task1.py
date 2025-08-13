@@ -218,8 +218,7 @@ def exam_process(
     while True:
         try:
             if check_lunch(time_start_exam):
-                # time.sleep(random.uniform(12, 18))
-                time.sleep(random.uniform(3, 4))
+                time.sleep(random.uniform(12, 18))
                 time_start_exam = time.time()
             student: Student = queue_of_students.get(timeout=1)
             examiner.conduct_exam(student, bank_of_questions)
@@ -230,7 +229,7 @@ def exam_process(
 
 def check_lunch(time_start_exam: float) -> bool:
     now = time.time()
-    if now - time_start_exam > 3:
+    if now - time_start_exam > 30:
         if random.random() < 1 / 3:
             return True
     return False
