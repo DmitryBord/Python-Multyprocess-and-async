@@ -14,7 +14,7 @@ async def img_download(
     session: aiohttp.ClientSession,
 ) -> None:
     try:
-        async with session.get(ln, ssl=False) as response:
+        async with session.get(ln, ssl=False, timeout=10) as response:
             if response.status != 200:
                 table_status[ln] = "Ошибка"
                 return
